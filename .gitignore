@@ -1,0 +1,19 @@
+# Rasters descomprimidos — se regeneran con: unzip data/datos_proyecto_1.zip -d data/
+data/datos_proyecto_1/
+*.tif
+!docs/*.tif
+
+# R
+.Rhistory
+.RData
+.Rproj.user/
+*.Rproj
+
+# Salidas intermedias
+resultados/*.png
+resultados/*.pdf
+!resultados/.gitkeep
+
+# SO
+.DS_Store
+Thumbs.db

@@ -155,11 +155,46 @@ Los `.tif` descomprimidos están en `.gitignore`: **no se versionan**, se regene
 ├── data/
 │   └── datos_proyecto_1.zip                     # dataset original, sin modificar
 ├── R/
+│   ├── 01_eda.R                                 # EDA + chequeos de grilla y cobertura
+│   ├── 02_modelo.R                              # autocorrelación, GLM, validación LOO, predicción
 │   └── proyecto1.R                              # ← el único .R reproducible que se entrega
 └── resultados/                                  # figuras y tablas generadas por el script
+    └── puntos_modelo.csv
 ```
 
 **Regla:** `docs/` y `data/` no se tocan — son los originales tal como los entregó el profesor. Todo lo que produzcamos vive en `R/` y `resultados/`.
+
+> ⚠️ El enunciado exige **un único archivo `.R`**. Los scripts `01_eda.R` y
+> `02_modelo.R` son el desarrollo por etapas; antes de entregar hay que
+> consolidarlos en `R/proyecto1.R`.
+
+### Cómo reproducir
+
+```bash
+unzip data/datos_proyecto_1.zip -d data/   # una sola vez
+Rscript R/01_eda.R                          # desde la raíz del repo
+Rscript R/02_modelo.R
+```
+
+---
+
+## 5.1 Historial de repositorios (consolidado 20-sep-2026)
+
+Este repositorio es la **única fuente de verdad** del Proyecto 1. Antes existían
+tres repos separados con partes del mismo trabajo, lo que arriesgaba entregar un
+enlace incompleto:
+
+| Repo original | Aportaba | Destino |
+|---|---|---|
+| `Proyecto1_Analitic` | README, enunciado, datos | **este repo** (base) |
+| `Proyecto1_Analitic-1` | `.Rproj` (PDF duplicado, md5 idéntico) | fusionado y eliminado |
+| `project1-analitica-datos` | `01_eda.R`, `02_modelo.R`, CSV — **estaba privado** | fusionado y eliminado |
+
+Respaldo completo de los tres antes del borrado:
+`vault/backups/github-analitica-20260920-154739/`
+
+**Este repo debe permanecer PÚBLICO.** Un repo privado le devuelve 404 al
+profesor y se califica como no entregado.
 
 ---
 
